@@ -1,0 +1,53 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "libro",
+            "otherEntityName": "libro",
+            "otherEntityRelationshipName": "ejemplar"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "libreria",
+            "otherEntityName": "libreria",
+            "otherEntityField": "codLibreria"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "isbn",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tituloLibro",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "autor",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numeroEjemplares",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "ejemplaresDisponibles",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "idioma",
+            "fieldType": "Language",
+            "fieldValues": "FRENCH,ENGLISH,SPANISH"
+        }
+    ],
+    "changelogDate": "20171219122719",
+    "entityTableName": "ejemplar",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

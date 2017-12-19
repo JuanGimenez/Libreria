@@ -1,0 +1,40 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "ejemplar",
+            "otherEntityName": "libro",
+            "otherEntityField": "codLibro"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "empleado",
+            "otherEntityName": "empleado",
+            "otherEntityField": "codEmpleado"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "codigoPrestamo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "fechaPrestado",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "fechasDevuelto",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20171219122722",
+    "entityTableName": "prestamo",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

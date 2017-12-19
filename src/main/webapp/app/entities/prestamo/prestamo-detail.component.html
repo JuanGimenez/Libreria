@@ -1,0 +1,46 @@
+
+<div *ngIf="prestamo">
+    <h2><span jhiTranslate="libreriaApp.prestamo.detail.title">Prestamo</span> {{prestamo.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="libreriaApp.prestamo.codigoPrestamo">Codigo Prestamo</span></dt>
+        <dd>
+            <span>{{prestamo.codigoPrestamo}}</span>
+        </dd>
+        <dt><span jhiTranslate="libreriaApp.prestamo.fechaPrestado">Fecha Prestado</span></dt>
+        <dd>
+            <span>{{prestamo.fechaPrestado | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="libreriaApp.prestamo.fechasDevuelto">Fechas Devuelto</span></dt>
+        <dd>
+            <span>{{prestamo.fechasDevuelto | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="libreriaApp.prestamo.ejemplar">Ejemplar</span></dt>
+        <dd>
+            <div *ngIf="prestamo.ejemplar">
+                <a [routerLink]="['/libro', prestamo.ejemplar?.id]">{{prestamo.ejemplar?.codLibro}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="libreriaApp.prestamo.empleado">Empleado</span></dt>
+        <dd>
+            <div *ngIf="prestamo.empleado">
+                <a [routerLink]="['/empleado', prestamo.empleado?.id]">{{prestamo.empleado?.codEmpleado}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'prestamo/'+ prestamo.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
